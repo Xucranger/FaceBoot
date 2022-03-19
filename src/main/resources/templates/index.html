@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>人脸识别登录</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body>
+		<div class="container">
+
+			<a th:href="@{/second/tosecond}" type="hidden" id="tosecond"></a>
+			<input type="hidden" th:value="${stu.getImgstr()}" id="Imgstr"/>
+			<div class="container-fluid centerdiv">
+				<!--<form id="loginform" action="Main.html" onsubmit="return check()">-->
+				<h2 class="title" th:text="${msg}"></h2>
+				<div class="login-div cen">
+					<div id="face-box">
+						<video id="video"></video>
+					</div>
+					<div id="overflow">
+						
+					</div>
+					<div style="display: none;">
+						<canvas id="canvas"></canvas>
+					</div>
+				</div>
+				<!--</form>-->
+			</div>
+			<div>
+				<tbody>
+				<tr  th:if="${start}">
+					<td th:text="${stu.getSname()}"></td>
+					<td th:text="${stu.getSid()}"></td>
+					<td th:text="${stu.getCollege()}"></td>
+					<td th:text="${stu.getMajor()}"></td>
+					<td th:text="${stu.getClassinfo()}"></td>
+				</tr>
+				</tbody>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="jquery-3.3.1/jquery-3.3.1.min.js"  th:inline="javascript"></script>
+	<script type="text/javascript" src="js/GetFace.js"  th:inline="javascript"></script>
+	<script type="text/javascript" src="js/Login.js" th:inline="javascript" ></script>
+	<script type="text/javascript" src="js/LoginAjax.js"  th:inline="javascript"></script>
+</html>
